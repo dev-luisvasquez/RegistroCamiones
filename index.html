@@ -57,6 +57,8 @@
     </form>
     <script>
         
+        
+        
         function convertirAMayusculas() {
             var input = document.getElementById("texto");
             input.value = input.value.toUpperCase();
@@ -84,8 +86,15 @@ totalEntrada.innerHTML = entrada1 + entrada2 + entrada3 + entrada4 + entrada5 + 
 totalSalida.innerHTML = salida1 + salida2 + salida3 + salida4 + salida5 + salida6;
 
 const Total = document.getElementById('Total');
+const TotalToal = totalEntrada.innerHTML - totalSalida.innerHTML;
+            // Verifica si es un número válido
+                var numeroRedondeado = Math.round(TotalToal); // Redondea el número
+                var TotalComa = numeroRedondeado.toLocaleString(); // Formatea el número con comas
+                Total.innerHTML = TotalComa;
+                
+            
 
-Total.innerHTML = totalEntrada.innerHTML - totalSalida.innerHTML;
+
         }
 
         
