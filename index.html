@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Camiones</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+    <script type="text/javascript" src="jspdf.min.js"></script>
+    <script type="text/javascript">
+        function genPDF(){
+            var date = new Date();
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            var minutes = date.getMinutes();
+            var hours = date.getHours();
+            
+            var doc=new jsPDF();
+            let mensaje=document.getElementById('esc').value;
+            doc.text(10,10,mensaje);
+            doc.save('RegistroCamiones.pdf');
+        }
+    </script>
+    <input type="text" placeholder="Escribeme" id="esc"><br><br>
+    <form action="">
+        <label for="">Patente</label>
+        <input oninput="convertirAMayusculas()" type="text" placeholder="Patente">
+        <br>
+        <table border="1">
+            <tr>
+                <th>ENTRADA</th>
+                <th>SALIDA</th>
+            </tr>
+            <tr>
+                <td><input type="number" value="0" placeholder="Eje 1" id="entrada1"></td>
+                <td><input type="number" value="0" placeholder="Eje 1" id="salida1"></td>
+            </tr>
+            <tr>
+                <td><input type="number" value="0" placeholder="Eje 2" id="entrada2"></td>
+                <td><input type="number" value="0"placeholder="Eje 2" id="salida2"></td>
+            </tr>
+            <tr>
+                <td><input type="number" value="0"placeholder="Eje 3" id="entrada3"></td>
+                <td><input type="number" value="0"placeholder="Eje 3" id="salida3"></td>
+            </tr>
+            <tr>
+                <td><input type="number"value="0" placeholder="Eje 4" id="entrada4"></td>
+                <td><input type="number"value="0" placeholder="Eje 4" id="salida4"></td>
+            </tr>
+            <tr>
+                <td><input type="number"value="0" placeholder="Eje 5" id="entrada5"></td>
+                <td><input type="number"value="0" placeholder="Eje 5" id="salida5"></td>
+            </tr>
+            <tr>
+                <td><input type="number" value="0"placeholder="Eje 6" id="entrada6"></td>
+                <td><input type="number" value="0"placeholder="Eje 6" id="salida6"></td>
+            </tr>
+            <tr>
+                <td >Total: <strong id="totalEntrada"></strong></td>
+                <td >Total: <strong id="totalSalida"></strong></td>
+            </tr>
+        </table>
+        <br>
+        <label for="">TOTAL <strong id="Total"></strong></label>
+        <br>
+        <button type="button" onclick="Calcular()">Calcular</button>
+        <br>
+        <a href="javascript:genPDF()">Crear pdf</a>
+
+    </form>
+    <script>
+        function convertirAMayusculas(input) {
+            
+            input.value = input.value.toUpperCase();
+        }
+
+        function Calcular(){
+            const entrada1 = parseInt(document.getElementById('entrada1').value);
+            const entrada2 = parseInt(document.getElementById('entrada2').value);
+            const entrada3 = parseInt(document.getElementById('entrada3').value);
+const entrada4 = parseInt(document.getElementById('entrada4').value);
+const entrada5 = parseInt(document.getElementById('entrada5').value);
+const entrada6 = parseInt(document.getElementById('entrada6').value);
+
+const salida1 = parseInt(document.getElementById('salida1').value)
+const salida2 = parseInt(document.getElementById('salida2').value)
+const salida3 = parseInt(document.getElementById('salida3').value)
+const salida4 = parseInt(document.getElementById('salida4').value)
+const salida5 = parseInt(document.getElementById('salida5').value)
+const salida6 = parseInt(document.getElementById('salida6').value)
+
+const totalEntrada = document.getElementById('totalEntrada');
+const totalSalida = document.getElementById('totalSalida');
+
+totalEntrada.innerHTML = entrada1 + entrada2 + entrada3 + entrada4 + entrada5 + entrada6;
+totalSalida.innerHTML = salida1 + salida2 + salida3 + salida4 + salida5 + salida6;
+
+const Total = document.getElementById('Total');
+
+Total.innerHTML = totalEntrada.innerHTML - totalSalida.innerHTML;
+        }
+
+        
+
+  
+    function generarPDF() {
+        window.onload = function() {
+  // Crea un objeto jsPDF
+  const doc = new jsPDF();
+
+  // Recopila los datos de los inputs
+  const patente = document.querySelector('input[type="text"]').value;
+  const entradas = [];
+  const salidas = [];
+
+  for (let i = 1; i <= 6; i++) {
+    entradas.push(document.getElementById(`entrada${i}`).value);
+    salidas.push(document.getElementById(`salida${i}`).value);
+  }
+
+  // Agrega los datos al PDF
+  doc.text(`Patente: ${patente}`, 10, 10);
+  doc.text('Entradas:', 10, 20);
+  doc.text(entradas.join(', '), 20, 30);
+  doc.text('Salidas:', 10, 40);
+  doc.text(salidas.join(', '), 20, 50);
+
+  // Guarda el PDF
+  doc.save('formulario.pdf');
+}
+}
+
+
+
+
+    </script>
+    
+
+    
+</body>
+</html>
