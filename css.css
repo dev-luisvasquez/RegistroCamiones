@@ -4,14 +4,18 @@
 
 input{
     font-size: 17px;
+    width: 120px;
+    
 }
 
 form{
     width: 300px;
-
 }
 
-.botones{
 
-    display: flex;
- margin-top: 30px;   justify-content: space-around;}
+.calcular{
+    border: none;
+    background-color: green;
+    color: white;
+    padding: 8px;
+}
