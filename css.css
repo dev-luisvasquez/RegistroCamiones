@@ -1,0 +1,17 @@
+* {
+    font-weight: bold;
+}
+
+input{
+    font-size: 17px;
+}
+
+form{
+    width: 300px;
+
+}
+
+.botones{
+
+    display: flex;
+ margin-top: 30px;   justify-content: space-around;}

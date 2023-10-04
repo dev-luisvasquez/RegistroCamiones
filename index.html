@@ -5,28 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Control Camiones</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
-    <script type="text/javascript" src="jspdf.min.js"></script>
-    <script type="text/javascript">
-        function genPDF(){
-            
-            
-
-            var doc=new jsPDF();
-            let mensaje=document.getElementById('esc').value;
-            
-            doc.text(10,10,mensaje);
-            doc.save('RegistroCamiones.pdf');
-        }
-    </script>
     <form action="">
         <label for="">Patente </label>
-        <input oninput="convertirAMayusculas()" type="text" placeholder="XXXXXXX">
-        <label for="">Fecha <span id="Fecha"></span></label>
+        <input onkeyup="convertirAMayusculas()" id="texto" type="text" placeholder="XXXXXXX">
+        
         <br>
-        <table border="1">
+        <table>
             <tr>
                 <th>ENTRADA</th>
                 <th>SALIDA</th>
@@ -62,30 +49,17 @@
         </table>
         <br>
         <label for="">TOTAL <strong id="Total"></strong></label>
-        <br>
-        <button type="button" onclick="Calcular()">Calcular</button>
-        <br>
-        <button>Limpiar</button>
+        <div class="botones">
+            <button type="button" onclick="Calcular()">Calcular</button>
+            <button>Limpiar</button>
 
+        </div>
+        
     </form>
     <script>
-        var date = new Date();
-            var day = date.getDate();
-            var month = date.getMonth() + 1;
-            var year = date.getFullYear();
-            var minutes = date.getMinutes();
-            var hours = date.getHours();
-            var ampm = hours >= 12? 'PM' : 'AM';
-            hours = hours % 12;
-            hours = hours? hours : 12; // the hour '0' should be '12'
-            minutes = minutes < 10? '0' + minutes : minutes;
-            var strTime = hours + ':' + minutes +'' + ampm;
-
-
-        const fecha = document.getElementById('Fecha');
-        fecha.innerHTML = day + '/' + month + '/' + year +' '+ strTime
-        function convertirAMayusculas(input) {
-            
+        
+        function convertirAMayusculas() {
+            var input = document.getElementById("texto");
             input.value = input.value.toUpperCase();
         }
 
