@@ -86,8 +86,8 @@ const totalEntrada = document.getElementById('totalEntrada');
 const totalSalida = document.getElementById('totalSalida');
 const fechaHoy = document.getElementById('fecha')
 
-const Dia = new Date().getDay()
-const Mes = new Date().getMonth()
+const Dia = new Date().getDate()
+const Mes = new Date().getMonth() + 1
 const Anio = new Date().getFullYear()
 console.log(Dia)
 fechaHoy.innerHTML = Dia  + '/' + Mes + '/' + Anio
