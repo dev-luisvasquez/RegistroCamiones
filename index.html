@@ -9,6 +9,7 @@
 </head>
 <body>
     <form action="">
+        
         <label for="">Patente </label>
         <input onkeyup="convertirAMayusculas()" id="texto" type="text" placeholder="XXXXXXX">
         
@@ -50,6 +51,7 @@
         <br>
         <label for="">TOTAL <strong id="Total"></strong></label>
         <br>
+        <div id="fecha"></div>
         <br>
         <button type="button" class="calcular" onclick="Calcular()">Calcular</button>
       
@@ -81,6 +83,13 @@ const salida6 = parseInt(document.getElementById('salida6').value)
 
 const totalEntrada = document.getElementById('totalEntrada');
 const totalSalida = document.getElementById('totalSalida');
+const fechaHoy = document.getElementById('fecha')
+
+const Dia = new Date().getDay()
+const Mes = new Date().getMonth()
+const Anio = new Date().getFullYear()
+console.log(Dia)
+fechaHoy.innerHTML = Dia  + '/' + Mes + '/' + Anio
 
 totalEntrada.innerHTML = entrada1 + entrada2 + entrada3 + entrada4 + entrada5 + entrada6;
 totalSalida.innerHTML = salida1 + salida2 + salida3 + salida4 + salida5 + salida6;
