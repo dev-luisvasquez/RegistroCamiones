@@ -53,6 +53,7 @@
         <label for="">TOTAL <strong id="Total"></strong></label>
         <br>
         
+        <div id="fecha"></div>
         <br>
         <button type="button" class="calcular" onclick="Calcular()">Calcular</button>
       
@@ -90,7 +91,7 @@ const Dia = new Date().getDate()
 const Mes = new Date().getMonth() + 1
 const Anio = new Date().getFullYear()
 console.log(Dia)
-fechaHoy.innerHTML = Dia  + '/' + Mes + '/' + Anio
+fechaHoy.innerHTML = ''
 
 totalEntrada.innerHTML = entrada1 + entrada2 + entrada3 + entrada4 + entrada5 + entrada6;
 totalSalida.innerHTML = salida1 + salida2 + salida3 + salida4 + salida5 + salida6;
